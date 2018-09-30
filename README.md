@@ -1,5 +1,7 @@
 # Kubelet cookbook
 
+[![Build Status](https://travis-ci.org/julienhuon/chef-kubelet.svg?branch=master)](https://travis-ci.org/julienhuon/chef-kubelet)
+
 The Kubelet Cookbook is a library cookbook that provides custom resources for use in recipes.
 
 ## Scope
