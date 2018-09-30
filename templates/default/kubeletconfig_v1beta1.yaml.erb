@@ -1,0 +1,254 @@
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+<%- unless @pod_manifest_path.nil? -%>
+staticPodPath: <%= @pod_manifest_path %>
+<%- end -%>
+<%- unless @sync_frequency.nil? -%>
+syncFrequency: <%= @sync_frequency %>
+<%- end -%>
+<%- unless @file_check_frequency.nil? -%>
+fileCheckFrequency: <%= @file_check_frequency %>
+<%- end -%>
+<%- unless @http_check_frequency.nil? -%>
+httpCheckFrequency: <%= http_check_frequency %>
+<%- end -%>
+<%- unless @manifest_url.nil? -%>
+staticPodURL: <%= @manifest_url %>
+<%- end -%>
+<%- unless @manifest_url_header.nil? -%>
+staticPodURLHeader: <%= @manifest_url_header %>
+<%- end -%>
+<%- unless @address.nil? -%>
+address: <%= @address %>
+<%- end -%>
+<%- unless @port.nil? -%>
+port: <%= @port %>
+<%- end -%>
+<%- unless @read_only_port.nil? -%>
+readOnlyPort: <%= @read_only_port %>
+<%- end -%>
+<%- unless @tls_cert_file.nil? -%>
+TLSCertFile: <%= @tls_cert_file %>
+<%- end -%>
+<%- unless @tls_private_key_file.nil? -%>
+TLSPrivateKeyFile: <%= @tls_private_key_file %>
+<%- end -%>
+<%- unless @tls_cipher_suites.nil? -%>
+TLSCipherSuites: <%= @tls_cipher_suites %>
+<%- end -%>
+<%- unless @tls_min_version.nil? -%>
+TLSMinVersion: <%= @tls_min_version %>
+<%- end -%>
+<%- unless @rotate_certificates.nil? -%>
+rotateCertificates: <%= @rotate_certificates %>
+<%- end -%>
+<%- unless @rotate_server_certificates.nil? -%>
+serverTLSBootstrap: <%= @rotate_server_certificates %>
+<%- end -%>
+<%- unless @authentication.empty? -%>
+authentication:
+  <%- unless @authentication['anonymous'].nil? -%>
+  anonymous:
+    <%- @authentication['anonymous'].each do |k,v| -%>
+    <%= k %>: <%= v %>
+    <%- end -%>
+  <%- end -%>
+  <%- unless @authentication['webhook'].nil? -%>
+  webhook:
+    <%- @authentication['webhook'].each do |k,v| -%>
+    <%= k %>: <%= v %>
+    <%- end -%>
+  <%- end -%>
+  <%- unless @authentication['x509'].nil? -%>
+  x509:
+    <%- @authentication['x509'].each do |k,v| -%>
+    <%= k %>: <%= v %>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+<%- unless @authorization.empty? -%>
+authorization:
+  <%- unless @authorization['mode'].nil? -%>
+  mode: <%= @authorization['mode'] %>
+  <%- end -%>
+  <%- unless @authorization['webhook'].nil? -%>
+  webhook:
+    <%- @authorization['webhook'].each do |k,v| -%>
+    <%= k %>: <%= v %>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+<%- unless @registry_qps.nil? -%>
+registryPullQPS: <%= @registry_qps %>
+<%- end -%>
+<%- unless @registry_burst.nil? -%>
+registryBurst: <%= @registry_burst %>
+<%- end -%>
+<%- unless @event_qps.nil? -%>
+eventRecordQPS: <%= @event_qps %>
+<%- end -%>
+<%- unless @event_burst.nil? -%>
+eventBurst: <%= @event_burst %>
+<%- end -%>
+<%- unless @enable_debugging_handlers.nil? -%>
+enableDebuggingHandlers: <%= @enable_debugging_handlers %>
+<%- end -%>
+<%- unless @contention_profiling.nil? -%>
+enableContentionProfiling: <%= @contention_profiling %>
+<%- end -%>
+<%- unless @healthz_port.nil? -%>
+healthzPort: <%= @healthz_port %>
+<%- end -%>
+<%- unless @healthz_bind_address.nil? -%>
+healthzBindAddress: <%= @healthz_bind_address %>
+<%- end -%>
+<%- unless @oom_score_adj.nil? -%>
+oomScoreAdj: <%= @oom_score_adj %>
+<%- end -%>
+<%- unless @cluster_domain.nil? -%>
+clusterDomain: <%= @cluster_domain %>
+<%- end -%>
+<%- unless @cluster_dns.nil? -%>
+CcusterDNS: <%= @cluster_dns %>
+<%- end -%>
+<%- unless @streaming_connection_idle_timeout.nil? -%>
+streamingConnectionIdleTimeout: <%= @streaming_connection_idle_timeout %>
+<%- end -%>
+<%- unless @node_status_update_frequency.nil? -%>
+nodeStatusUpdateFrequency: <%= @node_status_update_frequency %>
+<%- end -%>
+<%- unless @minimum_image_ttl_duration.nil? -%>
+imageMinimumGCAge: <%= @minimum_image_ttl_duration %>
+<%- end -%>
+<%- unless @image_gc_high_threshold.nil? -%>
+imageGCHighThresholdPercent: <%= @image_gc_high_threshold %>
+<%- end -%>
+<%- unless @image_gc_low_threshold.nil? -%>
+imageGCLowThresholdPercent: <%= @image_gc_low_threshold %>
+<%- end -%>
+<%- unless @volume_stats_agg_period.nil? -%>
+volumeStatsAggPeriod: <%= @@volume_stats_agg_period %>
+<%- end -%>
+<%- unless @kubelet_cgroups.nil? -%>
+kubeletCgroups: <%= @kubelet_cgroups %>
+<%- end -%>
+<%- unless @system_cgroups.nil? -%>
+systemCgroups: <%= @system_cgroups %>
+<%- end -%>
+<%- unless @cgroup_root.nil? -%>
+cgroupRoot: <%= @cgroup_driver %>
+<%- end -%>
+<%- unless @cgroups_per_qos.nil? -%>
+cgroupsPerQOS: <%= @cgroups_per_qos %>
+<%- end -%>
+<%- unless @cgroup_driver.nil? -%>
+cgroupDriver: <%= @cgroup_driver %>
+<%- end -%>
+<%- unless @cpu_manager_policy.nil? -%>
+cpuManagerPolicy: <%= @cpu_manager_policy %>
+<%- end -%>
+<%- unless @cpu_manager_reconcile_period.nil? -%>
+cpuManagerReconcilePeriod: <%= @cpu_manager_reconcile_period %>
+<%- end -%>
+<%- unless @qos_reserved.nil? -%>
+qosReserved: <%= qos_reserved %>
+<%- end -%>
+<%- unless @runtime_request_timeout.nil? -%>
+runtimeRequestTimeout: <%= @runtime_request_timeout %>
+<%- end -%>
+<%- unless @hairpin_mode.nil? -%>
+hairpinMode: <%= @hairpin_mode %>
+<%- end -%>
+<%- unless @max_pods.nil? -%>
+maxPods: <%= @max_pods %>
+<%- end -%>
+<%- unless @pod_cidr.nil? -%>
+podCIDR: <%= @pod_cidr %>
+<%- end -%>
+<%- unless @pod_max_pids.nil? -%>
+podPidsLimit: <%= @pod_max_pids %>
+<%- end -%>
+<%- unless @resolv_conf.nil? -%>
+resolverConfig: <%= @resolv_conf %>
+<%- end -%>
+<%- unless @cpu_cfs_quota.nil? -%>
+cpuCFSQuota: <%= @cpu_cfs_quota %>
+<%- end -%>
+<%- unless @max_open_files.nil? -%>
+maxOpenFiles: <%= @max_open_files %>
+<%- end -%>
+<%- unless @kube_api_content_type.nil? -%>
+contentType: <%= kube_api_content_type %>
+<%- end -%>
+<%- unless @kube_api_qps.nil? -%>
+kubeAPIQPS: <%= @kube_api_qps %>
+<%- end -%>
+<%- unless @kube_api_burst.nil? -%>
+kubeAPIBurst: <%= @kube_api_burst %>
+<%- end -%>
+<%- unless @serialize_image_pulls.nil? -%>
+serializeImagePulls: <%= @serialize_image_pulls %>
+<%- end -%>
+<%- unless @eviction_hard.nil? -%>
+evictionHard: <%= @eviction_hard %>
+<%- end -%>
+<%- unless @eviction_soft.nil? -%>
+evictionSoft: <%= @eviction_soft %>
+<%- end -%>
+<%- unless @eviction_soft_grace_period.nil? -%>
+evictionSoftGracePeriod: <%= @eviction_soft_grace_period %>
+<%- end -%>
+<%- unless @eviction_pressure_transition_period.nil? -%>
+evictionPressureTransitionPeriod: <%= @eviction_pressure_transition_period %>
+<%- end -%>
+<%- unless @eviction_max_pod_grace_period.nil? -%>
+evictionMaxPodGracePeriod: <%= @eviction_max_pod_grace_period %>
+<%- end -%>
+<%- unless @eviction_minimum_reclaim.nil? -%>
+evictionMinimumReclaim: <%= @eviction_minimum_reclaim %>
+<%- end -%>
+<%- unless @pods_per_core.nil? -%>
+eodsPerCore: <%= @pods_per_core %>
+<%- end -%>
+<%- unless @enable_controller_attach_detach.nil? -%>
+enableControllerAttachDetach: <%= @enable_controller_attach_detach %>
+<%- end -%>
+<%- unless @protect_kernel_defaults.nil? -%>
+protectKernelDefaults: <%= @protect_kernel_defaults %>
+<%- end -%>
+<%- unless @make_iptables_util_chains.nil? -%>
+makeIPTablesUtilChains: <%= @make_iptables_util_chains %>
+<%- end -%>
+<%- unless @iptables_masquerade_bit.nil? -%>
+iptablesMasqueradeBit: <%= @iptables_masquerade_bit %>
+<%- end -%>
+<%- unless @iptables_drop_bit.nil? -%>
+iptablesDropBit: <%= @iptables_drop_bit %>
+<%- end -%>
+<%- unless @feature_gates.nil? -%>
+featureGates: <%= @feature_gates %>
+<%- end -%>
+<%- unless @fail_swap_on.nil? -%>
+failSwapOn: <%= @fail_swap_on %>
+<%- end -%>
+<%- unless @container_log_max_size.nil? -%>
+containerLogMaxSize: <%= @container_log_max_size %>
+<%- end -%>
+<%- unless @container_log_max_files.nil? -%>
+containerLogMaxFiles: <%= @container_log_max_files %>
+<%- end -%>
+<%- unless @system_reserved.nil? -%>
+systemReserved: <%= @system_reserved %>
+<%- end -%>
+<%- unless @kube_reserved.nil? -%>
+kubeReserved: <%= @kube_reserved %>
+<%- end -%>
+<%- unless @system_reserved_cgroup.nil? -%>
+systemReservedCgroup: <%= @system_reserved_cgroup %>
+<%- end -%>
+<%- unless @kube_reserved_cgroup.nil? -%>
+kubeReservedCgroup: <%= @kube_reserved_cgroup %>
+<%- end -%>
+<%- unless @enforce_node_allocatable.nil? -%>
+enforceNodeAllocatable: <%= @enforce_node_allocatable %>
+<%- end -%>
