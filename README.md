@@ -326,7 +326,7 @@ All the [Kubelet Configuration Flags](https://kubernetes.io/docs/reference/comma
 In this example, a standalone instance of kubelet will be created.
 
 ```ruby
-kubelet_installation_package 'default' do
+kubelet_service 'default' do
   address '127.0.0.1'
   port 10250
   fail_swap_on false
