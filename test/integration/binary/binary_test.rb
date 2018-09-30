@@ -49,6 +49,9 @@ describe systemd_service('kubelet') do
   it { should be_running }
 end
 
+puts 'Sleeping to make sure the services are started'
+sleep 10
+
 describe port(10250) do
   it { should be_listening }
   its('processes') { should include 'kubelet' }
