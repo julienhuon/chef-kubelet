@@ -1,5 +1,5 @@
 #
-# Cookbook:: kubelet
+# Cookbook:: kubelet_test
 # Attributes:: default
 #
 # Copyright:: 2018, Julien Huon

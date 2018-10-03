@@ -20,7 +20,7 @@ The following platforms have been tested with Test Kitchen. It will most likely 
 
 ```
 |---------------+--------+--------+
-|               | 1.10.7 | 1.11.3 |
+|               | 1.10.8 | 1.11.3 |
 |---------------+--------+--------+
 | centos-7      |   X    |   X    |
 |---------------+--------+--------+
@@ -127,18 +127,18 @@ Name                  | Type                                              | Desc
 
 #### Example
 
-In this example, kubelet 1.10.7 will be installed:
+In this example, kubelet 1.10.8 will be installed:
 
 ```ruby
 kubelet_installation_package 'default' do
-  version '1.10.7'
+  version '1.10.8'
   action :create
 end
 ```
 
 ### kubelet_service
 
-The `kubelet_service` resource create a kubelet instance (configuration & service) using the given kubelet binary path.
+The `kubelet_service` resource creates a kubelet instance (configuration & service) using the given kubelet binary path.
 
 #### Properties
 
@@ -327,7 +327,7 @@ All the [Kubelet Configuration Flags](https://kubernetes.io/docs/reference/comma
 In this example, a standalone instance of kubelet will be created.
 
 ```ruby
-kubelet_service 'default' do
+kubelet_service 'kubelet' do
   address '127.0.0.1'
   port 10250
   fail_swap_on false

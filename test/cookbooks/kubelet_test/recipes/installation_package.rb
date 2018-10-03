@@ -1,5 +1,5 @@
 #
-# Cookbook:: kubelet
+# Cookbook:: kubelet_test
 # Recipe:: installation_package
 #
 # Copyright:: 2018, Julien Huon

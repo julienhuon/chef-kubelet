@@ -1,6 +1,6 @@
 #
 # Cookbook:: kubelet
-# Resource:: kubelet_installation_binary
+# Resource:: kubelet_service
 #
 # Copyright:: 2018, Julien Huon
 #

@@ -59,7 +59,7 @@ suites:
         - test/integration/package
     attributes:
       kubelet_test:
-        version: '1.10.7'
+        version: '1.10.8'
 
   - name: binary_1_11
     run_list:
@@ -83,6 +83,6 @@ suites:
         - test/integration/binary
     attributes:
       kubelet_test:
-        version: '1.10.7'
-        checksum: '530ddd24f86dc129f0658e75c3ea4f70b6fec28bf2126c0b810f87790456e963'
+        version: '1.10.8'
+        checksum: '7401b38e980359f2d39ad153450237d1049bf46d727e66cea8482ec02e0cdde1'
         kubelet_bin: '/opt/bin/kubelet'
