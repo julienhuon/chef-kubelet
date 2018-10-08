@@ -34,7 +34,7 @@ describe 'kubelet_test::installation_package' do
     end
 
     it 'installs a Kubelet package' do
-      expect(chef_run).to install_package('kubelet').with(version: '1.11.3-00')
+      expect(chef_run).to install_package('kubelet')
     end
   end
 
@@ -53,7 +53,7 @@ describe 'kubelet_test::installation_package' do
     end
 
     it 'installs a Kubelet package' do
-      expect(chef_run).to install_package('kubelet').with(version: '1.11.3')
+      expect(chef_run).to install_package('kubelet')
     end
   end
 end
