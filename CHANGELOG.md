@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the kubelet cookbook.
 
+# 0.2.0
+
+- Added support of kubelet 1.12
+
 # 0.1.1
 
 - Fixed typo

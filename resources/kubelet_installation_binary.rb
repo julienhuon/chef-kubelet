@@ -22,8 +22,8 @@
 resource_name :kubelet_installation_binary
 
 property :kubelet_binary_url,      String, default: lazy { "https://storage.googleapis.com/kubernetes-release/release/v#{kubelet_version}/bin/linux/amd64/kubelet" }
-property :kubelet_binary_checksum, String, default: '7d0767b6efdc565075f0ba219653e8f6b037643ddee946e0d88cccb6714e8f8f'
-property :kubelet_version,         String, default: '1.11.3'
+property :kubelet_binary_checksum, String, default: 'e350f6873e24741f6b995f266534bc4fdfeb0a594c4a37d688cf016d34ed074f'
+property :kubelet_version,         String, default: '1.12.1'
 property :kubelet_dir,             String, default: '/opt/bin'
 property :cni_tgz_url,             String, default: lazy { "https://github.com/containernetworking/plugins/releases/download/v#{cni_version}/cni-plugins-amd64-v#{cni_version}.tgz" }
 property :cni_tgz_checksum,        String, default: 'f04339a21b8edf76d415e7f17b620e63b8f37a76b2f706671587ab6464411f2d'

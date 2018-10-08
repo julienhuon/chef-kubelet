@@ -56,6 +56,7 @@ action :create do
       container_log_max_size: new_resource.container_log_max_size,
       contention_profiling: new_resource.contention_profiling,
       cpu_cfs_quota: new_resource.cpu_cfs_quota,
+      cpu_cfs_quota_period: new_resource.cpu_cfs_quota_period,
       cpu_manager_policy: new_resource.cpu_manager_policy,
       cpu_manager_reconcile_period: new_resource.cpu_manager_reconcile_period,
       enable_controller_attach_detach: new_resource.enable_controller_attach_detach,

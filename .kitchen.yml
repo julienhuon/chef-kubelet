@@ -39,6 +39,17 @@ platforms:
     pid_one_command: /bin/systemd
 
 suites:
+  - name: package_1_12
+    run_list:
+      - recipe[kubelet_test::installation_package]
+      - recipe[kubelet_test::service]
+    verifier:
+      inspec_tests:
+        - test/integration/package
+    attributes:
+      kubelet_test:
+        version: '1.12.1'
+
   - name: package_1_11
     run_list:
       - recipe[kubelet_test::installation_package]
@@ -60,6 +71,19 @@ suites:
     attributes:
       kubelet_test:
         version: '1.10.8'
+
+  - name: binary_1_12
+    run_list:
+      - recipe[kubelet_test::installation_binary]
+      - recipe[kubelet_test::service]
+    verifier:
+      inspec_tests:
+        - test/integration/binary
+    attributes:
+      kubelet_test:
+        version: '1.12.1'
+        checksum: 'cdd7eae22ad303d8b70fdd399e67a69467d1902605eaba55a311b97fb217662c'
+        kubelet_bin: '/opt/bin/kubelet'
 
   - name: binary_1_11
     run_list:

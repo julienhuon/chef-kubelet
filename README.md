@@ -19,17 +19,17 @@ This cookbook is only concerned with the [Kubelet](https://kubernetes.io/docs/re
 The following platforms have been tested with Test Kitchen. It will most likely work on other platforms as well
 
 ```
-|---------------+--------+--------+
-|               | 1.10.8 | 1.11.3 |
-|---------------+--------+--------+
-| centos-7      |   X    |   X    |
-|---------------+--------+--------+
-| debian-9      |   X    |   X    |
-|---------------+--------+--------+
-| fedora-28     |   X    |   X    |
-|---------------+--------+--------+
-| ubuntu-18.04  |   X    |   X    |
-|---------------+--------+--------+
+|---------------+--------+--------+--------+
+|               | 1.10.8 | 1.11.3 | 1.12.1 |
+|---------------+--------+--------+--------+
+| centos-7      |   X    |   X    |   X    |
+|---------------+--------+--------+--------+
+| debian-9      |   X    |   X    |   X    |
+|---------------+--------+--------+--------+
+| fedora-28     |   X    |   X    |   X    |
+|---------------+--------+--------+--------+
+| ubuntu-18.04  |   X    |   X    |   X    |
+|---------------+--------+--------+--------+
 ```
 
 ## Cookbook Dependencies
@@ -86,8 +86,8 @@ The `kubelet_installation_binary` resource copies the precompiled Go binaries (k
 Name                  | Type                                              | Description
 --------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------
 `kubelet_binary_url`        | String (Optional)     | URL where to fetch the kubelet binary _Default: https://storage.googleapis.com/kubernetes-release/release/v#{kubelet_version}/bin/linux/amd64/kubelet_
-`kubelet_binary_checksum`   | String (Optional)     | SHA256 checksum of the fetched kubelet binary _Default: 7d0767b6efdc565075f0ba219653e8f6b037643ddee946e0d88cccb6714e8f8f_
-`kubelet_version`           | String (Optional)     | Desired version of kubelet _Default: 1.11.3_
+`kubelet_binary_checksum`   | String (Optional)     | SHA256 checksum of the fetched kubelet binary _Default: cdd7eae22ad303d8b70fdd399e67a69467d1902605eaba55a311b97fb217662c_
+`kubelet_version`           | String (Optional)     | Desired version of kubelet _Default: 1.12.1_
 `kubelet_dir`               | String (Optional)     | Where the kubelet binary will be installed (will be created if it doesn't exists) _Default: /opt/bin_
 `cni_tgz_url`               | String (Optional)     | URL where to fetch the cni tar.gz file _Default: https://github.com/containernetworking/plugins/releases/download/v#{cni_version}/cni-plugins-amd64-v#{cni_version}.tgz_
 `cni_tgz_checksum`          | String (Optional)     | SHA256 checksum of the fetched cni tar.gz file _Default: f04339a21b8edf76d415e7f17b620e63b8f37a76b2f706671587ab6464411f2d_
@@ -121,7 +121,7 @@ Name                  | Type                                              | Desc
 `setup_repo`                | Boolean (Optional)    | Setup the kubelet repo. If you would like to manage the repo yourself so you can use an internal repo then set this to false _Default: true_
 `repo_url`                  | String (Optional)     | Kubelet repo URL _Default https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64 (CentOS/Fedora) http://apt.kubernetes.io/ (Debian/Ubuntu)_
 `repo_key_url`              | String (Optional)     | Kubelet repo Key URL _Default: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg(CentOS/Fedora) https://packages.cloud.google.com/apt/doc/apt-key.gpg (Debian/Ubuntu)_
-`version`                   | String (Optional)     | Desired version of kubelet _Default: 1.11.3_
+`version`                   | String (Optional)     | Desired version of kubelet _Default: 1.12.1_
 `package_name`              | String (Optional)     | Kubelet package Name _Default: kubelet_
 `package_options`           | String (Optional)     | Apt/Yum options _Default: nil_
 
@@ -187,6 +187,7 @@ All the [Kubelet Configuration Flags](https://kubernetes.io/docs/reference/comma
 - containerized, [TrueClass, FalseClass]
 - contention_profiling, [TrueClass, FalseClass]
 - cpu_cfs_quota, [TrueClass, FalseClass]
+- cpu_cfs_quota_period, String
 - cpu_manager_policy, String
 - cpu_manager_reconcile_period, String
 - docker, String

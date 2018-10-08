@@ -61,6 +61,7 @@ module KubeletCookbook
         property :containerized, [TrueClass, FalseClass]
         property :contention_profiling, [TrueClass, FalseClass]
         property :cpu_cfs_quota, [TrueClass, FalseClass]
+        property :cpu_cfs_quota_period, String
         property :cpu_manager_policy, String
         property :cpu_manager_reconcile_period, String
         property :docker, String
