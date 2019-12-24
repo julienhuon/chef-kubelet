@@ -1,7 +1,8 @@
 ---
 driver:
   name: dokken
-  chef_version: latest
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  chef_license: accept-no-persist
   privileged: true
   tmpfs:
     /var/lib/docker: rw
@@ -18,9 +19,9 @@ verifier:
   name: inspec
 
 platforms:
-- name: debian-9
+- name: debian-10
   driver:
-    image: dokken/debian-9
+    image: dokken/debian-10
     pid_one_command: /bin/systemd
 
 - name: centos-7
@@ -28,9 +29,9 @@ platforms:
     image: dokken/centos-7
     pid_one_command: /usr/lib/systemd/systemd
 
-- name: fedora-28
+- name: fedora-30
   driver:
-    image: dokken/fedora-28
+    image: dokken/fedora-30
     pid_one_command: /usr/lib/systemd/systemd
 
 - name: ubuntu-18.04
@@ -39,7 +40,7 @@ platforms:
     pid_one_command: /bin/systemd
 
 suites:
-  - name: package_1_12
+  - name: package_1_17
     run_list:
       - recipe[kubelet_test::installation_package]
       - recipe[kubelet_test::service]
@@ -48,9 +49,9 @@ suites:
         - test/integration/package
     attributes:
       kubelet_test:
-        version: '1.12.1'
+        version: '1.17.0'
 
-  - name: package_1_11
+  - name: package_1_16
     run_list:
       - recipe[kubelet_test::installation_package]
       - recipe[kubelet_test::service]
@@ -59,9 +60,9 @@ suites:
         - test/integration/package
     attributes:
       kubelet_test:
-        version: '1.11.3'
+        version: '1.16.4'
 
-  - name: package_1_10
+  - name: package_1_15
     run_list:
       - recipe[kubelet_test::installation_package]
       - recipe[kubelet_test::service]
@@ -70,9 +71,9 @@ suites:
         - test/integration/package
     attributes:
       kubelet_test:
-        version: '1.10.8'
+        version: '1.15.7'
 
-  - name: binary_1_12
+  - name: binary_1_17
     run_list:
       - recipe[kubelet_test::installation_binary]
       - recipe[kubelet_test::service]
@@ -81,11 +82,11 @@ suites:
         - test/integration/binary
     attributes:
       kubelet_test:
-        version: '1.12.1'
-        checksum: 'cdd7eae22ad303d8b70fdd399e67a69467d1902605eaba55a311b97fb217662c'
+        version: '1.17.0'
+        checksum: 'c2af77f501c3164e80171903028d35c632366f53dec0c8419828d4e55d86146f'
         kubelet_bin: '/opt/bin/kubelet'
 
-  - name: binary_1_11
+  - name: binary_1_16
     run_list:
       - recipe[kubelet_test::installation_binary]
       - recipe[kubelet_test::service]
@@ -94,11 +95,11 @@ suites:
         - test/integration/binary
     attributes:
       kubelet_test:
-        version: '1.11.3'
-        checksum: '7d0767b6efdc565075f0ba219653e8f6b037643ddee946e0d88cccb6714e8f8f'
+        version: '1.16.4'
+        checksum: 'a2f1eec9ecccebceb5032322ebc5e8cc054220c41cd4ec7b7b460cb8bfd63481'
         kubelet_bin: '/opt/bin/kubelet'
 
-  - name: binary_1_10
+  - name: binary_1_15
     run_list:
       - recipe[kubelet_test::installation_binary]
       - recipe[kubelet_test::service]
@@ -107,6 +108,6 @@ suites:
         - test/integration/binary
     attributes:
       kubelet_test:
-        version: '1.10.8'
-        checksum: '7401b38e980359f2d39ad153450237d1049bf46d727e66cea8482ec02e0cdde1'
+        version: '1.15.7'
+        checksum: 'e018fc3b934cb5325bc55444e029ddc357544191132794162de9e3663dd7e952'
         kubelet_bin: '/opt/bin/kubelet'

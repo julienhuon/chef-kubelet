@@ -23,7 +23,13 @@ end
 describe directory('/etc/kubernetes') do
   its('owner') { should eq 'root' }
   its('group') { should eq 'root' }
-  its('mode') { should eq 0600 }
+  its('mode') { should eq 0700 }
+end
+
+describe directory('/etc/kubernetes/manifests') do
+  its('owner') { should eq 'root' }
+  its('group') { should eq 'root' }
+  its('mode') { should eq 0755 }
 end
 
 describe file('/etc/kubernetes/config.yaml') do
@@ -50,7 +56,7 @@ describe systemd_service('kubelet') do
 end
 
 puts 'Sleeping to make sure the services are started'
-sleep 10
+sleep 30
 
 describe port(10250) do
   it { should be_listening }

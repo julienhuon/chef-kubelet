@@ -24,7 +24,7 @@ resource_name :kubelet_installation_package
 property :setup_repo,      [TrueClass, FalseClass], default: true
 property :repo_url,        String, default: lazy { default_repo_url }
 property :repo_key_url,    String, default: lazy { default_repo_key_url }
-property :version,         String, default: '1.12.1'
+property :version,         String, default: '1.17.0'
 property :package_name,    String, default: 'kubelet'
 property :package_version, String, default: lazy { get_package_version(version) }
 property :package_options, String

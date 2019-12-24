@@ -33,7 +33,14 @@ action :create do
   directory new_resource.config_dir do
     user 'root'
     group 'root'
-    mode '0600'
+    mode '0700'
+  end
+
+  # manifests dir
+  directory new_resource.pod_manifest_path do
+    user 'root'
+    group 'root'
+    mode '0755'
   end
 
   # config file
@@ -123,25 +130,23 @@ action :create do
   end
 
   # systemd service
-  systemd_service new_resource.name do
-    triggers_reload false
-    unit do
-      description 'kubelet: The Kubernetes Node Agent'
-      documentation 'http://kubernetes.io/docs/'
-    end
-    service do
-      user 'root'
-      exec_start kubelet_cmd
-      restart 'always'
-      restart_sec 10
-    end
-    install do
-      wanted_by 'multi-user.target'
-    end
-    triggers_reload true
-  end
+  systemd_unit "#{new_resource.name}.service" do
+    content(
+      Unit: {
+        Description: 'kubelet: The Kubernetes Node Agent',
+        Documentation: 'http://kubernetes.io/docs/',
+      },
+      Service: {
+        ExecStart: kubelet_cmd,
+        RestartSec: '10',
+        Restart: 'always',
+        User: 'root',
+      },
+      Install: {
+        WantedBy: 'multi-user.target',
+      }
+    )
 
-  service new_resource.name do
-    action [:enable, :start]
+    action [:create, :enable, :start]
   end
 end
