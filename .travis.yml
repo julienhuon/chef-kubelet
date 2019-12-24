@@ -50,12 +50,10 @@ before_script:
   - cookstyle --version
   - foodcritic --version
 
-script: KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen verify ${INSTANCE}
+script: CHEF_LICENSE=accept kitchen verify ${INSTANCE}
 
 matrix:
   include:
     - script:
       - chef exec delivery local all
-      env: 
-        - UNIT_AND_LINT=1
-        - CHEF_LICENSE=accept
+      env: UNIT_AND_LINT=1
