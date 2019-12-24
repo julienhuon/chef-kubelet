@@ -6,7 +6,7 @@ This file is used to list changes made in each version of the kubelet cookbook.
 
 - Binary default kubelet version is now 1.17.0
 - Binary default cni version is now 0.7.5
-- Tested with kubelet 1.17.0, 1.16.4 and 1.15.7 on CentOS 7, Debian 10, Fedora 30 and Ubuntu 18.04
+- Tested with kubelet 1.17.0, 1.16.4 and 1.15.7 on CentOS 7, Debian 9, Fedora 30 and Ubuntu 18.04
 - Creates manifests directory
 - remove dependency to systemd cookbook
 

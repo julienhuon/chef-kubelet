@@ -57,7 +57,7 @@ describe systemd_service('kubelet') do
 end
 
 puts 'Sleeping to make sure the services are started'
-sleep 10
+sleep 30
 
 describe port(10250) do
   it { should be_listening }

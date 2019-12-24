@@ -24,7 +24,7 @@ The following platforms have been tested with Test Kitchen. It will most likely 
 |---------------+--------+--------+--------+
 | centos-7      |   X    |   X    |   X    |
 |---------------+--------+--------+--------+
-| debian-10     |   X    |   X    |   X    |
+| debian-9      |   X    |   X    |   X    |
 |---------------+--------+--------+--------+
 | fedora-30     |   X    |   X    |   X    |
 |---------------+--------+--------+--------+

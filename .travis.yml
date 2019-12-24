@@ -18,27 +18,27 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=package-1-17-debian-10
+  - INSTANCE=package-1-17-debian-9
   - INSTANCE=package-1-17-centos-7
   - INSTANCE=package-1-17-fedora-30
   - INSTANCE=package-1-17-ubuntu-1804
-  - INSTANCE=package-1-16-debian-10
+  - INSTANCE=package-1-16-debian-9
   - INSTANCE=package-1-16-centos-7
   - INSTANCE=package-1-16-fedora-30
   - INSTANCE=package-1-16-ubuntu-1804
-  - INSTANCE=package-1-15-debian-10
+  - INSTANCE=package-1-15-debian-9
   - INSTANCE=package-1-15-centos-7
   - INSTANCE=package-1-15-fedora-30
   - INSTANCE=package-1-15-ubuntu-1804
-  - INSTANCE=binary-1-17-debian-10
+  - INSTANCE=binary-1-17-debian-9
   - INSTANCE=binary-1-17-centos-7
   - INSTANCE=binary-1-17-fedora-30
   - INSTANCE=binary-1-17-ubuntu-1804
-  - INSTANCE=binary-1-16-debian-10
+  - INSTANCE=binary-1-16-debian-9
   - INSTANCE=binary-1-16-centos-7
   - INSTANCE=binary-1-16-fedora-30
   - INSTANCE=binary-1-16-ubuntu-1804
-  - INSTANCE=binary-1-15-debian-10
+  - INSTANCE=binary-1-15-debian-9
   - INSTANCE=binary-1-15-centos-7
   - INSTANCE=binary-1-15-fedora-30
   - INSTANCE=binary-1-15-ubuntu-1804
