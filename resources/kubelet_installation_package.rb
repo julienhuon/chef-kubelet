@@ -34,7 +34,7 @@ action :create do
     if platform_family?('rhel', 'fedora')
       yum_repository 'Kubernetes' do
         baseurl new_resource.repo_url
-        gpgkey new_resource.repo_key_url
+        gpgkey new_resource.repo_key_url.split(' ')
         description 'Kubernetes repository'
         gpgcheck true
         repo_gpgcheck true
