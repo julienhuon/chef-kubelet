@@ -37,8 +37,8 @@ describe 'kubelet_test::service' do
       expect(chef_run).to create_template('/etc/kubernetes/config.yaml')
     end
 
-    it 'enables & start a kubelet service' do
-      expect(chef_run).to enable_service('kubelet')
+    it 'enables & start a kubelet systemd_unit' do
+      expect(chef_run).to start_systemd_unit('kubelet.service')
     end
   end
 end

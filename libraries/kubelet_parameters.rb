@@ -24,12 +24,12 @@ module KubeletCookbook
     def self.included(base)
       base.class_eval do
         property :address, String, default: '0.0.0.0'
-        property :allow_privileged, [TrueClass, FalseClass]
+        property :allow_privileged, [true, false]
         property :allowed_unsafe_sysctls, String
-        property :alsologtostderr, [TrueClass, FalseClass]
-        property :anonymous_auth, [TrueClass, FalseClass]
+        property :alsologtostderr, [true, false]
+        property :anonymous_auth, [true, false]
         property :application_metrics_count_limit, Integer
-        property :authentication_token_webhook, [TrueClass, FalseClass]
+        property :authentication_token_webhook, [true, false]
         property :authentication_token_webhook_cache_ttl, String
         property :authorization_mode, String
         property :authorization_webhook_cache_authorized_ttl, String
@@ -42,7 +42,7 @@ module KubeletCookbook
         property :cert_dir, String
         property :cgroup_driver, String
         property :cgroup_root, String
-        property :cgroups_per_qos, [TrueClass, FalseClass]
+        property :cgroups_per_qos, [true, false]
         property :chaos_chance, Float
         property :client_ca_file, String
         property :cloud_config, String
@@ -58,27 +58,27 @@ module KubeletCookbook
         property :container_runtime, String
         property :container_runtime_endpoint, String
         property :containerd, String
-        property :containerized, [TrueClass, FalseClass]
-        property :contention_profiling, [TrueClass, FalseClass]
-        property :cpu_cfs_quota, [TrueClass, FalseClass]
+        property :containerized, [true, false]
+        property :contention_profiling, [true, false]
+        property :cpu_cfs_quota, [true, false]
         property :cpu_cfs_quota_period, String
         property :cpu_manager_policy, String
         property :cpu_manager_reconcile_period, String
         property :docker, String
-        property :docker_disable_shared_pid, [TrueClass, FalseClass]
+        property :docker_disable_shared_pid, [true, false]
         property :docker_endpoint, String
         property :docker_env_metadata_whitelist, String
-        property :docker_only, [TrueClass, FalseClass]
+        property :docker_only, [true, false]
         property :docker_root, String
-        property :docker_tls, [TrueClass, FalseClass]
+        property :docker_tls, [true, false]
         property :docker_tls_ca, String
         property :docker_tls_cert, String
         property :docker_tls_key, String
         property :dynamic_config_dir, String
-        property :enable_controller_attach_detach, [TrueClass, FalseClass]
-        property :enable_debugging_handlers, [TrueClass, FalseClass]
-        property :enable_load_reader, [TrueClass, FalseClass]
-        property :enable_server, [TrueClass, FalseClass]
+        property :enable_controller_attach_detach, [true, false]
+        property :enable_debugging_handlers, [true, false]
+        property :enable_load_reader, [true, false]
+        property :enable_server, [true, false]
         property :enforce_node_allocatable, String
         property :event_burst, Integer
         property :event_qps, Integer
@@ -90,13 +90,13 @@ module KubeletCookbook
         property :eviction_pressure_transition_period, String
         property :eviction_soft, String
         property :eviction_soft_grace_period, String
-        property :exit_on_lock_contention, [TrueClass, FalseClass]
-        property :experimental_allocatable_ignore_eviction, [TrueClass, FalseClass]
+        property :exit_on_lock_contention, [true, false]
+        property :experimental_allocatable_ignore_eviction, [true, false]
         property :experimental_allowed_unsafe_sysctls, String
-        property :experimental_check_node_capabilities_before_mount, [TrueClass, FalseClass]
-        property :experimental_kernel_memcg_notification, [TrueClass, FalseClass]
+        property :experimental_check_node_capabilities_before_mount, [true, false]
+        property :experimental_kernel_memcg_notification, [true, false]
         property :experimental_mounter_path, String
-        property :fail_swap_on, [TrueClass, FalseClass]
+        property :fail_swap_on, [true, false]
         property :feature_gates, Hash
         property :file_check_frequency, String
         property :global_housekeeping_interval, String
@@ -115,7 +115,7 @@ module KubeletCookbook
         property :image_service_endpoint, String
         property :iptables_drop_bit, Integer
         property :iptables_masquerade_bit, Integer
-        property :keep_terminated_pod_volumes, [TrueClass, FalseClass]
+        property :keep_terminated_pod_volumes, [true, false]
         property :kube_api_burst, Integer
         property :kube_api_content_type, String
         property :kube_api_qps, Integer
@@ -125,12 +125,12 @@ module KubeletCookbook
         property :kubelet_cgroups, String
         property :lock_file, String
         property :log_backtrace_at, String
-        property :log_cadvisor_usage, [TrueClass, FalseClass]
+        property :log_cadvisor_usage, [true, false]
         property :log_dir, String
         property :log_flush_frequency, String
-        property :logtostderr, [TrueClass, FalseClass]
+        property :logtostderr, [true, false]
         property :machine_id_file, String
-        property :make_iptables_util_chains, [TrueClass, FalseClass]
+        property :make_iptables_util_chains, [true, false]
         property :manifest_url, String
         property :manifest_url_header, String
         property :master_service_namespace, String
@@ -154,32 +154,32 @@ module KubeletCookbook
         property :pod_max_pids, Integer
         property :pods_per_core, Integer
         property :port, Integer, default: 10250
-        property :protect_kernel_defaults, [TrueClass, FalseClass]
+        property :protect_kernel_defaults, [true, false]
         property :provider_id, String
         property :qos_reserved, String
         property :read_only_port, Integer
-        property :really_crash_for_testing, [TrueClass, FalseClass]
-        property :redirect_container_streaming, [TrueClass, FalseClass]
-        property :register_node, [TrueClass, FalseClass]
-        property :register_schedulable, [TrueClass, FalseClass]
+        property :really_crash_for_testing, [true, false]
+        property :redirect_container_streaming, [true, false]
+        property :register_node, [true, false]
+        property :register_schedulable, [true, false]
         property :register_with_taints, String
         property :registry_burst, Integer
         property :registry_qps, Integer
         property :resolv_conf, String
         property :root_dir, String
-        property :rotate_certificates, [TrueClass, FalseClass]
-        property :rotate_server_certificates, [TrueClass, FalseClass]
-        property :runonce, [TrueClass, FalseClass]
+        property :rotate_certificates, [true, false]
+        property :rotate_server_certificates, [true, false]
+        property :runonce, [true, false]
         property :runtime_cgroups, String
         property :runtime_request_timeout, String
         property :seccomp_profile_root, String
-        property :serialize_image_pulls, [TrueClass, FalseClass]
+        property :serialize_image_pulls, [true, false]
         property :stderrthreshold, Integer
         property :storage_driver_buffer_duration, String
         property :storage_driver_db, String
         property :storage_driver_host, String
         property :storage_driver_password, String
-        property :storage_driver_secure, [TrueClass, FalseClass]
+        property :storage_driver_secure, [true, false]
         property :storage_driver_table, String
         property :storage_driver_user, String
         property :streaming_connection_idle_timeout, String

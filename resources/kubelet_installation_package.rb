@@ -21,7 +21,7 @@
 
 resource_name :kubelet_installation_package
 
-property :setup_repo,      [TrueClass, FalseClass], default: true
+property :setup_repo,      [true, false], default: true
 property :repo_url,        String, default: lazy { default_repo_url }
 property :repo_key_url,    String, default: lazy { default_repo_key_url }
 property :version,         String, default: '1.17.0'
@@ -37,7 +37,6 @@ action :create do
         gpgkey new_resource.repo_key_url.split(' ')
         description 'Kubernetes repository'
         gpgcheck true
-        repo_gpgcheck true
         enabled true
       end
     elsif platform_family?('debian')
